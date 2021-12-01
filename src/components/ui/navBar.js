@@ -3,46 +3,9 @@ import { Link, NavLink } from 'react-router-dom'
 
 export const Navbar = () => {
     return (
-        <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow ">
             
-            <Link 
-                className="navbar-brand mx-2" 
-                to="/"
-            >
-                Net LIS
-            </Link>
-
-            <div className="navbar-collapse">
-                <div className="navbar-nav">
-
-                    <NavLink 
-                        activeClassName="active"
-                        className="nav-item nav-link" 
-                        exact
-                        to="/paciente"
-                    >
-                        Pacientes
-                    </NavLink>
-
-                    
-                </div>
-            </div>
-
-            <div className="navbar-collapse">
-                <div className="navbar-nav">
-
-                    <NavLink 
-                        activeClassName="active"
-                        className="nav-item nav-link" 
-                        exact
-                        to="/tipoorden"
-                    >
-                        Tipo Orden
-                    </NavLink>
-
-                    
-                </div>
-            </div>
+           
 
             <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
                 <ul className="navbar-nav ml-auto">
@@ -52,10 +15,10 @@ export const Navbar = () => {
                         exact
                         to="/login"
                     >
-                        Logout
+                        Cerrar Sesión
                     </NavLink>
                 </ul>
             </div>
-        </nav>
+        </nav> 
     )
 }
