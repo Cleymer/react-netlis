@@ -1,6 +1,9 @@
+import { responsiveFontSizes } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { DataGrid } from '@mui/x-data-grid';
+import { listarPaciente } from "../../actions/PacienteAction";
+//import { DataGrid } from '@mui/x-data-grid';
 //import DataTable from "react-data-table-component";
+
 
 const columns  = [
     { field: 'idPaciente', headerName: 'ID', width: 250 },
@@ -12,25 +15,30 @@ const columns  = [
 
 const PacienteTable = () => {
     
-    const [tableData, setTableData] = useState([])
-
-    useEffect(()=>{
-        fetch("https://localhost:44342/api/paciente")
-        .then((data) => data.json())
-        .then((data) => setTableData(data))
-    })
+    const [tableData, setTableData] = useState([])  
     
+	useEffect(()=>{
+		const fetchData = async () =>{
+			try {
+			  const {data: response} = await listarPaciente();
+			  setTableData(response);
+			} catch (error) {
+			  console.error(error.message);
+			}
+		}
+		fetchData();
+	}, []);
 	
     return (
 
-        <div class="container mt-5  ">
-        <div class="card shadow mb-4  ">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Pacientes</h6>
+        <div className="container mt-5  ">
+        <div className="card shadow mb-4  ">
+        <div className="card-header py-3">
+            <h6 className="m-0 font-weight-bold text-primary">Pacientes</h6>
         </div>
-        <div class="card-body mb-5">
+        <div className="card-body mb-5">
 
-		<table class="table table-bordered">
+		<table className="table table-bordered">
 			<thead>
 				<tr>
 				  <th scope="col">ID</th>
@@ -49,11 +57,11 @@ const PacienteTable = () => {
 			</tfoot>
 			<tbody>
 				{tableData.map((paciente)=>(
-					<tr>
+					<tr key="{paciente.idPaciente}">
 					<td>{paciente.idPaciente}</td>
 					<td>{paciente.primerNombre}</td>
 					<td>{paciente.primerApellido}</td>
-					<td><a><i class="fas fa-edit"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a><i class="fas fa-trash"></i></a></td>
+					<td><a><i className="fas fa-edit"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a><i className="fas fa-trash"></i></a></td>
 					</tr>
 				))}
 			</tbody>

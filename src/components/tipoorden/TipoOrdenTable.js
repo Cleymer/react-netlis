@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 //import { DataGrid } from '@mui/x-data-grid';
 //import { Container, Typography } from '@mui/material';
+import { listarTipoOrden } from "../../actions/TipoOrdenAction";
 
 const columns = [
     { field: 'idTipoOrden', headerName: 'ID', width: 250 },
@@ -13,12 +14,23 @@ const TipoOrdenTable = () => {
     
     const [tableData, setTableData] = useState([])
 
-    useEffect(()=>{
+    /*useEffect(()=>{
         fetch("https://localhost:44342/api/tipoorden")
         .then((data) => data.json())
         .then((data) => setTableData(data))
-    })
+    })*/
     
+	useEffect(()=>{
+		const fetchData = async () =>{
+			try {
+			  const {data: response} = await listarTipoOrden();
+			  setTableData(response);
+			} catch (error) {
+			  console.error(error.message);
+			}
+		}
+		fetchData();
+	}, []);
 	
     return (
         <div class="container mt-5  ">
@@ -45,7 +57,7 @@ const TipoOrdenTable = () => {
 			</tfoot>
 			<tbody>
 				{tableData.map((tp)=>(
-					<tr>
+					<tr key="{tp.idTipoOrden}">
 					<td>{tp.idTipoOrden}</td>
 					<td>{tp.descripcion}</td>
 					<td><a><i class="fas fa-edit"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a><i class="fas fa-trash"></i></a></td>
