@@ -30,6 +30,18 @@ const PacienteTable = () => {
 		fetchData();
 	}, []);
 	
+	function enviarParams (e, idpaciente) {
+
+		e.preventDefault();
+		window.open('/ordenpaciente?idpaciente='+idpaciente, '_parent');
+	}
+
+	function enviarParamsForm (e, idpaciente) {
+
+		e.preventDefault();
+		window.open('/ordenform?idpaciente='+idpaciente, '_parent');
+	}
+
     return (
 
         <div className="container mt-5  ">
@@ -58,7 +70,11 @@ const PacienteTable = () => {
 					<td>{paciente.idPaciente}</td>
 					<td>{paciente.primerNombre}</td>
 					<td>{paciente.primerApellido}</td>
-					<td><a><i className="fas fa-edit"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a><i className="fas fa-trash"></i></a></td>
+					<td>
+						<a href="#" onClick={e => enviarParams(e, paciente.idPaciente)}><i className="fas fa-archive"></i></a>
+						&nbsp;
+						<a href="#" onClick={e => enviarParamsForm(e, paciente.idPaciente)}><i className="fas fa-archive"></i></a>
+					</td>
 					</tr>
 				))}
 			</tbody>

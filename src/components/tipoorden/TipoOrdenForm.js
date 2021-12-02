@@ -45,7 +45,7 @@ export const TipoOrdenForm = () => {
 
            <label className="card-text">Descripción: </label> 
            <input name="descripcion" onChange={ingresarValores} value={tipoOrden.descripcion} className="form-control " type="text"/>
-        
+           
             <div className="mb-3">
                 <button className="btn btn-primary my-3" type="submit" onClick={registrarTipoOrdenBoton} >Guardar</button>
             </div>

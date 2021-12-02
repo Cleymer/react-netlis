@@ -6,8 +6,10 @@ import { Sidebar } from "../components/ui/sideBar";
 import { Principal } from "../components/principalpage/Principal";
 import TipoOrdenTable from "../components/tipoorden/TipoOrdenTable";
 import {TipoOrdenForm} from "../components/tipoorden/TipoOrdenForm";
+import OrdenPacienteTable from "../components/orden/OrdenPacienteTable";
 
 import { Footer } from "../components/ui/footer";
+import { OrdenForm } from "../components/orden/OrdenForm";
 export const AppRouter = () => {
     return (
         <div>
@@ -35,8 +37,11 @@ export const AppRouter = () => {
                             <Route path="/" element={<Principal />} />
                             <Route path="/paciente" element={<PacienteTable/>}/>
                             <Route path="/tipoorden" element={<TipoOrdenTable/>}/>
+                            <Route path="/ordenpaciente" element={<OrdenPacienteTable/>}/>
                             <Route path="/paciente_form" element={<Paciente_form/>}/>
 							<Route path="/tipoordenform" element={<TipoOrdenForm/>}/>
+                            <Route path="/ordenform" element={<OrdenForm/>}/>
+                            
                         </Routes>
                         
                     </BrowserRouter>
