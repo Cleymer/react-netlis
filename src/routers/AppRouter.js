@@ -5,6 +5,7 @@ import { Navbar } from "../components/ui/navBar";
 import { Sidebar } from "../components/ui/sideBar";
 import { Principal } from "../components/principalpage/Principal";
 import TipoOrdenTable from "../components/tipoorden/TipoOrdenTable";
+import {TipoOrdenForm} from "../components/tipoorden/TipoOrdenForm";
 
 import { Footer } from "../components/ui/footer";
 export const AppRouter = () => {
@@ -35,6 +36,7 @@ export const AppRouter = () => {
                             <Route path="/paciente" element={<PacienteTable/>}/>
                             <Route path="/tipoorden" element={<TipoOrdenTable/>}/>
                             <Route path="/paciente_form" element={<Paciente_form/>}/>
+							<Route path="/tipoordenform" element={<TipoOrdenForm/>}/>
                         </Routes>
                         
                     </BrowserRouter>

@@ -2,12 +2,7 @@ import React, { useEffect, useState } from "react";
 //import { DataGrid } from '@mui/x-data-grid';
 //import { Container, Typography } from '@mui/material';
 import { listarTipoOrden } from "../../actions/TipoOrdenAction";
-
-const columns = [
-    { field: 'idTipoOrden', headerName: 'ID', width: 250 },
-    { field: 'descripcion', headerName: 'Descripcion', width: 250 },
-];
-
+import { Link, NavLink } from 'react-router-dom'
 
 
 const TipoOrdenTable = () => {
@@ -39,6 +34,9 @@ const TipoOrdenTable = () => {
             <h6 class="m-0 font-weight-bold text-primary">Tipo Orden</h6>
         </div>
         <div class="card-body mb-5">
+		<Link to="/tipoordenform">
+		<button className="btn btn-primary my-3">Nuevo Tipo Orden</button>
+		</Link>
 		<table id="example1" class="table table-bordered table-striped">
                
 			<thead>

@@ -7,3 +7,11 @@ export const listarTipoOrden = () => {
         })
     })
 }
+
+export const registrarTipoOrden = TipoOrden => {
+    return new Promise((resolve, eject) =>{
+        HttpClient.post('/tipoorden', TipoOrden).then(response =>{
+            resolve(response);
+        })
+    })
+}

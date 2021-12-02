@@ -66,12 +66,7 @@ export const Sidebar = () => {
                     </li>
 
 
-                    <li class="nav-item">
-                    <a href="/paciente_form" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Ingresar Paciente</p>
-                    </a>
-                    </li>
+                   
  
 
 

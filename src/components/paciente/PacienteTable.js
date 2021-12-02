@@ -1,5 +1,6 @@
 import { responsiveFontSizes } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { listarPaciente } from "../../actions/PacienteAction";
 //import { DataGrid } from '@mui/x-data-grid';
 //import DataTable from "react-data-table-component";
@@ -37,6 +38,9 @@ const PacienteTable = () => {
             <h6 className="m-0 font-weight-bold text-primary">Pacientes</h6>
         </div>
         <div className="card-body mb-5">
+		<Link to="/paciente_form">
+		<button className="btn btn-primary my-3">Nuevo Paciente</button>
+		</Link>
 		<table id="example1" class="table table-bordered table-striped">
                
 			<thead>
