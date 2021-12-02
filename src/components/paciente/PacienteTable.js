@@ -37,8 +37,8 @@ const PacienteTable = () => {
             <h6 className="m-0 font-weight-bold text-primary">Pacientes</h6>
         </div>
         <div className="card-body mb-5">
-
-		<table className="table table-bordered">
+		<table id="example1" class="table table-bordered table-striped">
+               
 			<thead>
 				<tr>
 				  <th scope="col">ID</th>
@@ -47,14 +47,7 @@ const PacienteTable = () => {
 				  <th scope="col">Opciones</th>
 				</tr>
 			</thead>
-			<tfoot>
-				<tr>
-				  <th scope="col">ID</th>
-				  <th scope="col">Primer Nombre</th>
-				  <th scope="col">Primer Apellido</th>
-				  <th scope="col">Opciones</th>
-				</tr>
-			</tfoot>
+			
 			<tbody>
 				{tableData.map((paciente)=>(
 					<tr key="{paciente.idPaciente}">
@@ -65,7 +58,14 @@ const PacienteTable = () => {
 					</tr>
 				))}
 			</tbody>
-			
+			<tfoot>
+				<tr>
+				  <th scope="col">ID</th>
+				  <th scope="col">Primer Nombre</th>
+				  <th scope="col">Primer Apellido</th>
+				  <th scope="col">Opciones</th>
+				</tr>
+			</tfoot>
 		</table>
 
        
