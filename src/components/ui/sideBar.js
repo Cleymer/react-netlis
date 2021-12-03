@@ -66,7 +66,12 @@ export const Sidebar = () => {
                     </li>
 
 
-                   
+                    <li class="nav-item">
+                    <a href="/orden" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Ordenes</p>
+                    </a>
+                    </li>
  
 
 

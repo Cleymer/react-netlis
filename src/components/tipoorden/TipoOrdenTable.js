@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 //import { DataGrid } from '@mui/x-data-grid';
 //import { Container, Typography } from '@mui/material';
-import { listarTipoOrden } from "../../actions/TipoOrdenAction";
+import { listarTipoOrden, eliminarTipoOrden } from "../../actions/TipoOrdenAction";
 import { Link, NavLink } from 'react-router-dom'
 
 
@@ -27,6 +27,21 @@ const TipoOrdenTable = () => {
 		fetchData();
 	}, []);
 	
+
+	function deleteTP (e, idTipoOrden) {
+		e.preventDefault();
+
+		eliminarTipoOrden(idTipoOrden).then(function response(){
+			alert("Eliminado con éxito");
+			window.open("/tipoorden", "_parent");
+		})
+		.catch(error=>{console.log(error.message)});
+
+
+
+	}
+
+
     return (
         <div class="container mt-5  ">
         <div class="card shadow mb-4  ">
@@ -37,7 +52,7 @@ const TipoOrdenTable = () => {
 		<Link to="/tipoordenform">
 		<button className="btn btn-primary my-3">Nuevo Tipo Orden</button>
 		</Link>
-		<table id="example1" class="table table-bordered table-striped">
+		<table class="table table-bordered table-striped">
                
 			<thead>
 				<tr>
@@ -52,7 +67,7 @@ const TipoOrdenTable = () => {
 					<tr key="{tp.idTipoOrden}">
 					<td>{tp.idTipoOrden}</td>
 					<td>{tp.descripcion}</td>
-					<td><a><i class="fas fa-edit"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a><i class="fas fa-trash"></i></a></td>
+					<td><a href="#" onClick={e => deleteTP(e, tp.idTipoOrden)}><i class="fas fa-trash"></i></a></td>
 					</tr>
 				))}
 			</tbody>

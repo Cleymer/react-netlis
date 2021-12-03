@@ -41,6 +41,24 @@ const OrdenPacienteTable = () => {
 		fetchData();
 		fetchPaciente();
 	}, []);
+
+	function enviarParams (e, idorden) {
+
+		e.preventDefault();
+		window.open('/ordendetalle?idorden='+idorden, '_parent');
+	}
+
+	/*const eliminarTodo = e => {
+		e.preventDefault();
+		tableData.splice(0, tableData.length);
+		console.log(tableData);
+	}*/
+
+	function enviarParamsForm (e, idorden, norden) {
+
+		e.preventDefault();
+		window.open('/ordendetalleform?idorden='+idorden+'&norden='+norden, '_parent');
+	}
 	
     return (
 
@@ -80,7 +98,9 @@ const OrdenPacienteTable = () => {
 					<td>{paciente.asistencia}</td>
 					<td>{paciente.observaciones}</td>
 					<td>{paciente.fechaOrden}</td>
-					<td><a><i className="fas fa-edit"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a><i className="fas fa-trash"></i></a></td>
+					<td>
+						<a href="#" data-toggle="tooltip" title="Visualizar detalles de orden" onClick={e => enviarParams(e, paciente.idOrden)}><i className="fas fa-eye"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="#" data-toggle="tooltip" title="Agregar detalles a la orden" onClick={e => enviarParamsForm(e, paciente.idOrden, paciente.nOrden)}><i className="fas fa-plus-square"></i></a></td>
 					</tr>
 				))}
 			</tbody>

@@ -10,6 +10,11 @@ import OrdenPacienteTable from "../components/orden/OrdenPacienteTable";
 
 import { Footer } from "../components/ui/footer";
 import { OrdenForm } from "../components/orden/OrdenForm";
+import OrdenTable from "../components/orden/OrdenTable";
+import OrdenDetalleTable from "../components/ordendetalle/OrdenDetalleTable";
+import { OrdenDetalleForm } from "../components/ordendetalle/OrdenDetalleForm";
+
+
 export const AppRouter = () => {
     return (
         <div>
@@ -38,10 +43,12 @@ export const AppRouter = () => {
                             <Route path="/paciente" element={<PacienteTable/>}/>
                             <Route path="/tipoorden" element={<TipoOrdenTable/>}/>
                             <Route path="/ordenpaciente" element={<OrdenPacienteTable/>}/>
+                            <Route path="/ordendetalle" element={<OrdenDetalleTable/>}/>
                             <Route path="/paciente_form" element={<Paciente_form/>}/>
 							<Route path="/tipoordenform" element={<TipoOrdenForm/>}/>
                             <Route path="/ordenform" element={<OrdenForm/>}/>
-                            
+                            <Route path="/orden" element={<OrdenTable/>}/>
+                            <Route path="/ordendetalleform" element={<OrdenDetalleForm/>}/>
                         </Routes>
                         
                     </BrowserRouter>

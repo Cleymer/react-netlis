@@ -15,3 +15,11 @@ export const registrarTipoOrden = TipoOrden => {
         })
     })
 }
+
+export const eliminarTipoOrden = (id) => {
+    return new Promise((resolve, reject) => {
+        HttpClient.delete('/tipoorden/'+id).then(response =>{
+            resolve(response);
+        })
+    })
+}

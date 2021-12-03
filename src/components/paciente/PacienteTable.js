@@ -6,13 +6,6 @@ import { listarPaciente } from "../../actions/PacienteAction";
 //import DataTable from "react-data-table-component";
 
 
-const columns  = [
-    { field: 'idPaciente', headerName: 'ID', width: 250 },
-    { field: 'primerNombre', headerName: 'Primer Nombre', width: 250 },
-    { field: 'primerApellido', headerName: 'Primer Apellido', width: 250  }
-];
-
-
 
 const PacienteTable = () => {
     
@@ -36,6 +29,12 @@ const PacienteTable = () => {
 		window.open('/ordenpaciente?idpaciente='+idpaciente, '_parent');
 	}
 
+	/*const eliminarTodo = e => {
+		e.preventDefault();
+		tableData.splice(0, tableData.length);
+		console.log(tableData);
+	}*/
+
 	function enviarParamsForm (e, idpaciente) {
 
 		e.preventDefault();
@@ -50,17 +49,15 @@ const PacienteTable = () => {
             <h6 className="m-0 font-weight-bold text-primary">Pacientes</h6>
         </div>
         <div className="card-body mb-5">
-		<Link to="/paciente_form">
-		<button className="btn btn-primary my-3">Nuevo Paciente</button>
-		</Link>
-		<table id="example1" class="table table-bordered table-striped">
+		
+		<table class="table table-bordered table-striped">
                
 			<thead>
 				<tr>
 				  <th scope="col">ID</th>
 				  <th scope="col">Primer Nombre</th>
 				  <th scope="col">Primer Apellido</th>
-				  <th scope="col">Opciones</th>
+				  <th scope="col">Opciones de Orden</th>
 				</tr>
 			</thead>
 			
@@ -71,9 +68,9 @@ const PacienteTable = () => {
 					<td>{paciente.primerNombre}</td>
 					<td>{paciente.primerApellido}</td>
 					<td>
-						<a href="#" onClick={e => enviarParams(e, paciente.idPaciente)}><i className="fas fa-archive"></i></a>
-						&nbsp;
-						<a href="#" onClick={e => enviarParamsForm(e, paciente.idPaciente)}><i className="fas fa-archive"></i></a>
+						<a data-toggle="tooltip" title="Visualizar ordenes" href="#" onClick={e => enviarParams(e, paciente.idPaciente)}><i className="fas fa-archive"></i></a>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<a data-toggle="tooltip" title="Agregar Nueva Orden" href="#" onClick={e => enviarParamsForm(e, paciente.idPaciente)}><i className="fas fa-folder-plus"></i></a>
 					</td>
 					</tr>
 				))}
@@ -83,7 +80,7 @@ const PacienteTable = () => {
 				  <th scope="col">ID</th>
 				  <th scope="col">Primer Nombre</th>
 				  <th scope="col">Primer Apellido</th>
-				  <th scope="col">Opciones</th>
+				  <th scope="col">Opciones de Orden</th>
 				</tr>
 			</tfoot>
 		</table>
