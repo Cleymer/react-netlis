@@ -7,3 +7,11 @@ export const listarMedico = () => {
         })
     })
 }
+
+export const medicoUnico = (id) => {
+    return new Promise((resolve, reject) => {
+        HttpClient.get('/medico/'+id).then(response =>{
+            resolve(response);
+        })
+    })
+}

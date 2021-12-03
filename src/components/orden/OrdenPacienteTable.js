@@ -3,10 +3,6 @@ import React, { useEffect, useState } from "react";
 import { listarOrdenPaciente } from "../../actions/OrdenAction";
 import { pacienteUnico } from "../../actions/PacienteAction";
 
-//import { DataGrid } from '@mui/x-data-grid';
-//import DataTable from "react-data-table-component";
-
-
 
 const OrdenPacienteTable = () => {
     
@@ -46,6 +42,11 @@ const OrdenPacienteTable = () => {
 
 		e.preventDefault();
 		window.open('/ordendetalle?idorden='+idorden, '_parent');
+	}
+
+	function paramsOrden (e, idorden,norden){
+		e.preventDefault();
+		window.open('/generarorden?idorden='+idorden+'&norden='+norden, '_parent');
 	}
 
 	/*const eliminarTodo = e => {
@@ -99,8 +100,12 @@ const OrdenPacienteTable = () => {
 					<td>{paciente.observaciones}</td>
 					<td>{paciente.fechaOrden}</td>
 					<td>
-						<a href="#" data-toggle="tooltip" title="Visualizar detalles de orden" onClick={e => enviarParams(e, paciente.idOrden)}><i className="fas fa-eye"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<a href="#" data-toggle="tooltip" title="Agregar detalles a la orden" onClick={e => enviarParamsForm(e, paciente.idOrden, paciente.nOrden)}><i className="fas fa-plus-square"></i></a></td>
+						
+						<a href="#" data-toggle="tooltip" title="Visualizar detalles de orden" onClick={e => enviarParams(e, paciente.idOrden)}><i className="fas fa-eye"></i></a>&nbsp;&nbsp;&nbsp;
+						<a href="#" data-toggle="tooltip" title="Agregar detalles a la orden" onClick={e => enviarParamsForm(e, paciente.idOrden, paciente.nOrden)}><i className="fas fa-plus-square"></i></a>
+						&nbsp;&nbsp;&nbsp;
+						<a href="#" data-toggle="tooltip" title="Generar Orden" onClick={e => paramsOrden(e, paciente.idOrden, paciente.nOrden)}><i className="fas fa-print"></i></a>
+						</td>
 					</tr>
 				))}
 			</tbody>

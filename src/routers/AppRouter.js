@@ -13,6 +13,7 @@ import { OrdenForm } from "../components/orden/OrdenForm";
 import OrdenTable from "../components/orden/OrdenTable";
 import OrdenDetalleTable from "../components/ordendetalle/OrdenDetalleTable";
 import { OrdenDetalleForm } from "../components/ordendetalle/OrdenDetalleForm";
+import GenerarOrden from "../components/orden/GenerarOrden";
 
 
 export const AppRouter = () => {
@@ -49,6 +50,7 @@ export const AppRouter = () => {
                             <Route path="/ordenform" element={<OrdenForm/>}/>
                             <Route path="/orden" element={<OrdenTable/>}/>
                             <Route path="/ordendetalleform" element={<OrdenDetalleForm/>}/>
+                            <Route path="/generarorden" element={<GenerarOrden/>}/>
                         </Routes>
                         
                     </BrowserRouter>

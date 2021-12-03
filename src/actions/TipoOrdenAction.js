@@ -23,3 +23,11 @@ export const eliminarTipoOrden = (id) => {
         })
     })
 }
+
+export const tpUnico = (id) =>{
+    return new Promise((resolve, reject) => {
+        HttpClient.get('/tipoorden/'+id).then(response =>{
+            resolve(response);
+        })
+    })
+}

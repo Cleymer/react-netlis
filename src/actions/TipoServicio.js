@@ -7,3 +7,11 @@ export const listarTipoServicio = () => {
         })
     })
 }
+
+export const servicioUnico = (id) => {
+    return new Promise((resolve, reject) => {
+        HttpClient.get('/tiposervicio/'+id).then(response =>{
+            resolve(response);
+        })
+    })
+}

@@ -6,7 +6,6 @@ import { registrarTipoOrden } from '../../actions/TipoOrdenAction';
 
 export const TipoOrdenForm = () => {
 
-    let navigate = useNavigate();
 	
     const [tipoOrden, setTipoOrden] = useState({
         descripcion: '',
